@@ -1,4 +1,4 @@
-💸 AhorrosPE - Gestor de Ahorros Personal
+💸 AhorrosInteligentes - Gestor de Ahorros Personal
 =========================================
 
 Una aplicación web moderna, rápida y visualmente atractiva para gestionar metas de ahorro, controlar gastos diarios y visualizar el progreso financiero. Diseñada con un enfoque oscuro y elegante, construida con las últimas versiones de Angular y Tailwind CSS.
