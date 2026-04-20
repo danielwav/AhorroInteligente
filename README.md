@@ -42,7 +42,7 @@ Sigue estos pasos para ejecutar el proyecto en tu máquina local:
 1.  **Clonar el repositorio:**
 
     ```
-    git clone [https://github.com/tu-usuario/gestoreconomico.git 
+    git clone [https://github.com/tu-usuario/AhorroInteligente.git 
     cd gestoreconomico]
     ```
 
