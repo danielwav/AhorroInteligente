@@ -42,7 +42,8 @@ Sigue estos pasos para ejecutar el proyecto en tu máquina local:
 1.  **Clonar el repositorio:**
 
     ```
-    git clone https://github.com/tu-usuario/gestoreconomico.gitcd gestoreconomico
+    git clone [https://github.com/tu-usuario/gestoreconomico.git 
+    cd gestoreconomico]
     ```
 
 1.  **Instalar dependencias:**
