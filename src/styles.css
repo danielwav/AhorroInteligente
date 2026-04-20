@@ -1,0 +1,157 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+@layer base {
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'DM Sans', sans-serif;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+        font-family: 'Syne', sans-serif;
+    }
+}
+
+@layer components {
+    .card-glass {
+        @apply bg-base-200 border border-base-300 rounded-2xl shadow-xl relative overflow-hidden;
+    }
+
+    .card-glass::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, transparent 60%);
+        pointer-events: none;
+    }
+
+    .btn-glow {
+        /* ✅ Forzamos un púrpura vibrante sólido y texto blanco puro */
+        @apply inline-flex items-center justify-center rounded-xl px-5 py-2.5 text-sm font-bold text-white bg-[#7C6EFF] hover:bg-[#6a58e6] transition-all cursor-pointer border-none select-none;
+        box-shadow: 0 0 20px rgba(124, 110, 255, 0.45);
+    }
+
+    .btn-glow:hover {
+        box-shadow: 0 0 35px rgba(124, 110, 255, 0.75);
+        transform: translateY(-2px);
+    }
+
+    .btn-glow:hover {
+        box-shadow: 0 0 40px rgba(124, 110, 255, 0.55);
+        transform: translateY(-1px);
+    }
+
+    .input-styled {
+        /* ✅ CORREGIDO: Remplazamos 'input input-bordered' por utilidades puras */
+        @apply w-full appearance-none rounded-xl bg-base-300 px-4 py-2 text-sm leading-loose border border-base-300 text-base-content placeholder:text-base-content/40 focus:border-primary focus:outline-none transition-all;
+    }
+
+    .select-styled {
+        /* ✅ CORREGIDO: Remplazamos 'select select-bordered' por utilidades puras */
+        @apply w-full appearance-none rounded-xl bg-base-300 px-4 py-2 text-sm leading-loose border border-base-300 text-base-content focus:border-primary focus:outline-none transition-all;
+    }
+
+    .tag-ingreso {
+        /* ✅ CORREGIDO: Remplazamos 'badge badge-success' por utilidades puras */
+        @apply inline-flex items-center px-2 py-0.5 text-xs font-mono font-medium rounded-md bg-success/20 text-success;
+    }
+
+    .tag-gasto {
+        /* ✅ CORREGIDO: Remplazamos 'badge badge-error' por utilidades puras */
+        @apply inline-flex items-center px-2 py-0.5 text-xs font-mono font-medium rounded-md bg-error/20 text-error;
+    }
+
+    .num {
+        font-family: 'JetBrains Mono', monospace;
+        font-variant-numeric: tabular-nums;
+    }
+
+    .label-field {
+        @apply block text-xs text-base-content/50 uppercase tracking-widest font-medium mb-1.5;
+    }
+}
+
+@layer utilities {
+    .text-gradient {
+        background: linear-gradient(135deg, #7C6EFF 0%, #3EDDB7 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .bg-mesh {
+        background:
+            radial-gradient(ellipse at 15% 15%, rgba(124, 110, 255, 0.07) 0%, transparent 55%),
+            radial-gradient(ellipse at 85% 80%, rgba(62, 221, 183, 0.05) 0%, transparent 55%),
+            #bcbddc;
+    }
+}
+
+/* ── Animations ── */
+@keyframes slideUp {
+    from { transform: translateY(18px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+    from { transform: scale(.95); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes barGrow {
+    from { width: 0; }
+    to { width: var(--bar-w); }
+}
+
+@keyframes shimmer {
+    0% { background-position: -200% 0 }
+    100% { background-position: 200% 0 }
+}
+
+.anim-up { animation: slideUp .4s ease-out both; }
+.anim-up-1 { animation: slideUp .4s ease-out .08s both; }
+.anim-up-2 { animation: slideUp .4s ease-out .16s both; }
+.anim-up-3 { animation: slideUp .4s ease-out .24s both; }
+.anim-up-4 { animation: slideUp .4s ease-out .32s both; }
+.anim-in { animation: scaleIn .3s ease-out both; }
+.anim-fade { animation: fadeIn .35s ease-out both; }
+
+/* ── Custom scrollbar ── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #171826; }
+::-webkit-scrollbar-thumb { background: rgba(124, 110, 255, .35); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(124, 110, 255, .6); }
+
+/* ── Modal box animation ── */
+.modal-box { animation: scaleIn .25s ease-out; }
+
+/* ── Progress bar animated ── */
+.bar-animated { animation: barGrow .7s cubic-bezier(.4, 0, .2, 1) both; }
+
+/* ── Alert danger pulse ── */
+.alert-danger {
+    @apply bg-error/10 border border-error/25 text-error rounded-xl p-4;
+    animation: pulse 2.5s ease-in-out infinite;
+}
+
+canvas { max-height: 260px; }
+
+/* ── Fuerza a mostrar el ícono del calendario nativo ── */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(0.6);
+    cursor: pointer;
+    opacity: 1;
+    display: block;
+}
